@@ -9,7 +9,17 @@ import java.util.List;
 
 public class EmployeePayrollDBServices {
     private List<EmployeePayrollData> employeePayrollDataList;
+    private PreparedStatement employeePayrollDataStatement;
+    private static EmployeePayrollDBServices employeePayrollDBServices;
+    public EmployeePayrollDBServices() {
 
+    }
+
+    public static EmployeePayrollDBServices getInstance() {
+        if (employeePayrollDBServices == null)
+            employeePayrollDBServices = new EmployeePayrollDBServices();
+        return employeePayrollDBServices;
+    }
     private Connection getConnection() throws SQLException, SQLException {
         String jdbcURL = "jdbc:mysql://localhost:3306/employee_payroll";
         String userName = "root";
@@ -33,7 +43,7 @@ public class EmployeePayrollDBServices {
                 String name = result.getString("name");
                 double salary = result.getDouble("salary");
                 LocalDate startDate = result.getDate("start").toLocalDate();
-                employeePayrollList.add(new EmployeePayrollData(id, name, salary, startDate));
+                employeePayrollDataList.add(new EmployeePayrollData(id, name, salary, startDate));
             }
             connection.close();
         } catch (SQLException e) {

@@ -1,9 +1,12 @@
 package com.employeepayrollservice;
 
+import employeePayrollService.EmployeePayrollServices;
+
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.util.Enumeration;
+import java.util.List;
 
 /*@Description- Created a Employee payroll service database.
  * java program connect to database.*/
@@ -39,6 +42,10 @@ public class EmployeePayrollService {
             Driver driverClass = (Driver) driverList.nextElement();
             System.out.println("  " + driverClass.getClass().getName());
         }
+    }
+
+    public List<EmployeePayrollData> readEmployeePayrollData(EmployeePayrollServices.IOService dbIo) {
+        return null;
     }
 
     public class IOService {
