@@ -1,7 +1,5 @@
 package com.employeepayrollservice;
 
-import employeePayrollService.EmployeePayrollServices;
-
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
@@ -46,6 +44,10 @@ public class EmployeePayrollService {
 
     public List<EmployeePayrollData> readEmployeePayrollData(EmployeePayrollServices.IOService dbIo) {
         return null;
+    }
+
+    public int updateDataUsingStatement(String name, double salary) {
+        return 0;
     }
 
     public class IOService {
